@@ -1,3 +1,3 @@
-# My GitHub Page!
+# Fur Dictionary
 
-https://madhavan-raja.github.io
+A dictionary app using FurDB
