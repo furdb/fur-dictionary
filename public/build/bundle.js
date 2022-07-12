@@ -334,36 +334,64 @@ var app = (function () {
 
     function create_fragment(ctx) {
     	let main;
-    	let div2;
+    	let div3;
     	let div0;
     	let h1;
     	let t1;
     	let div1;
     	let input;
+    	let t2;
+    	let button;
+    	let t4;
+    	let div2;
+    	let span0;
+    	let t6;
+    	let span1;
 
     	const block = {
     		c: function create() {
     			main = element("main");
-    			div2 = element("div");
+    			div3 = element("div");
     			div0 = element("div");
     			h1 = element("h1");
     			h1.textContent = "Fur Converter";
     			t1 = space();
     			div1 = element("div");
     			input = element("input");
+    			t2 = space();
+    			button = element("button");
+    			button.textContent = "Go";
+    			t4 = space();
+    			div2 = element("div");
+    			span0 = element("span");
+    			span0.textContent = "ABCDEFGHIJ";
+    			t6 = text(":\r\n      ");
+    			span1 = element("span");
+    			span1.textContent = "ABCDEFGHIJKLMNOPQRSTUVWX";
     			attr_dev(h1, "class", "text-6xl text-center");
     			add_location(h1, file, 6, 6, 169);
     			attr_dev(div0, "id", "title");
     			attr_dev(div0, "class", "py-10 w-full");
     			add_location(div0, file, 5, 4, 124);
-    			attr_dev(input, "class", "w-full text-4xl bg-transparent text-center outline-none focus:border-b-2 focus:placeholder:text-transparent");
+    			attr_dev(input, "class", "text-4xl p-4 bg-transparent outline-none border-b-2 border-transparent focus:border-neutral-200 focus:placeholder:text-transparent");
     			attr_dev(input, "placeholder", "Search for a word");
-    			add_location(input, file, 10, 6, 265);
+    			add_location(input, file, 10, 6, 314);
+    			attr_dev(button, "class", "text-4xl p-4 bg-neutral-400 hover:bg-neutral-100 text-neutral-900 transition-colors ease-in");
+    			add_location(button, file, 14, 6, 527);
     			attr_dev(div1, "id", "search");
+    			attr_dev(div1, "class", "py-10 flex flex-row place-content-evenly");
     			add_location(div1, file, 9, 4, 240);
-    			attr_dev(div2, "id", "container");
-    			attr_dev(div2, "class", "px-8 sm:px-20 md:px-40 lg:px-80");
-    			add_location(div2, file, 4, 2, 58);
+    			attr_dev(span0, "id", "word");
+    			attr_dev(span0, "class", "font-bold");
+    			add_location(span0, file, 21, 6, 732);
+    			attr_dev(span1, "id", "definition");
+    			add_location(span1, file, 22, 6, 792);
+    			attr_dev(div2, "id", "result");
+    			attr_dev(div2, "class", "py-10");
+    			add_location(div2, file, 20, 4, 693);
+    			attr_dev(div3, "id", "container");
+    			attr_dev(div3, "class", "px-8 sm:px-20 md:px-40 lg:px-80");
+    			add_location(div3, file, 4, 2, 58);
     			attr_dev(main, "class", "text-neutral-200");
     			add_location(main, file, 3, 0, 23);
     		},
@@ -372,12 +400,19 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, div2);
-    			append_dev(div2, div0);
+    			append_dev(main, div3);
+    			append_dev(div3, div0);
     			append_dev(div0, h1);
-    			append_dev(div2, t1);
-    			append_dev(div2, div1);
+    			append_dev(div3, t1);
+    			append_dev(div3, div1);
     			append_dev(div1, input);
+    			append_dev(div1, t2);
+    			append_dev(div1, button);
+    			append_dev(div3, t4);
+    			append_dev(div3, div2);
+    			append_dev(div2, span0);
+    			append_dev(div2, t6);
+    			append_dev(div2, span1);
     		},
     		p: noop,
     		i: noop,

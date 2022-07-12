@@ -405,6 +405,9 @@ Ensure the default browser behavior of the `hidden` attribute.
     max-width: 1536px;
   }
 }
+.m-4 {
+  margin: 1rem;
+}
 .flex {
   display: flex;
 }
@@ -414,8 +417,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .flex-row {
   flex-direction: row;
 }
+.place-content-between {
+  place-content: space-between;
+}
+.place-content-evenly {
+  place-content: space-evenly;
+}
+.place-content-stretch {
+  place-content: stretch;
+}
 .content-center {
   align-content: center;
+}
+.items-stretch {
+  align-items: stretch;
 }
 .justify-center {
   justify-content: center;
@@ -425,6 +440,13 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .border-b-2 {
   border-bottom-width: 2px;
+}
+.border-neutral-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 229 229 / var(--tw-border-opacity));
+}
+.border-transparent {
+  border-color: transparent;
 }
 .bg-slate-900 {
   --tw-bg-opacity: 1;
@@ -444,6 +466,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .bg-transparent {
   background-color: transparent;
+}
+.bg-neutral-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(212 212 212 / var(--tw-bg-opacity));
+}
+.bg-neutral-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(115 115 115 / var(--tw-bg-opacity));
+}
+.bg-neutral-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(163 163 163 / var(--tw-bg-opacity));
+}
+.p-4 {
+  padding: 1rem;
 }
 .px-8 {
   padding-left: 2rem;
@@ -480,6 +517,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 3.75rem;
   line-height: 1;
 }
+.font-bold {
+  font-weight: 700;
+}
+.font-black {
+  font-weight: 900;
+}
 .text-slate-200 {
   --tw-text-opacity: 1;
   color: rgb(226 232 240 / var(--tw-text-opacity));
@@ -503,11 +546,31 @@ Ensure the default browser behavior of the `hidden` attribute.
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+.transition-colors {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
 .placeholder\:no-underline::placeholder {
   text-decoration: none;
 }
+.hover\:bg-neutral-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
+.hover\:text-neutral-100:hover {
+  --tw-text-opacity: 1;
+  color: rgb(245 245 245 / var(--tw-text-opacity));
+}
 .focus\:border-b-2:focus {
   border-bottom-width: 2px;
+}
+.focus\:border-neutral-200:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 229 229 / var(--tw-border-opacity));
 }
 .focus\:underline:focus {
   text-decoration: underline;
