@@ -4,7 +4,7 @@
 <main class="text-neutral-200">
   <div id="container" class="px-8 sm:px-20 md:px-40 lg:px-80">
     <div id="title" class="py-10 w-full">
-      <h1 class="text-6xl text-center">Fur Converter</h1>
+      <h1 class="text-6xl text-center">Fur Dictionary</h1>
     </div>
 
     <div id="search" class="py-10 flex flex-row place-content-evenly">
