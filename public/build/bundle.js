@@ -373,26 +373,26 @@ var app = (function () {
     			attr_dev(div0, "id", "title");
     			attr_dev(div0, "class", "py-10 w-full");
     			add_location(div0, file, 5, 4, 124);
-    			attr_dev(input, "class", "text-4xl p-4 bg-transparent outline-none border-b-2 border-transparent focus:border-neutral-200 focus:placeholder:text-transparent");
+    			attr_dev(input, "class", "text-4xl p-4 bg-transparent placeholder:text-neutral-600 outline-none border-b-2 border-transparent focus:border-neutral-900 focus:placeholder:text-transparent");
     			attr_dev(input, "placeholder", "Search for a word");
     			add_location(input, file, 10, 6, 315);
-    			attr_dev(button, "class", "text-4xl p-4 bg-neutral-400 hover:bg-neutral-100 text-neutral-900 transition-colors ease-in");
-    			add_location(button, file, 14, 6, 528);
+    			attr_dev(button, "class", "text-4xl p-4 bg-neutral-700 hover:bg-neutral-600 text-neutral-200 transition-colors ease-in");
+    			add_location(button, file, 14, 6, 557);
     			attr_dev(div1, "id", "search");
     			attr_dev(div1, "class", "py-10 flex flex-row place-content-evenly");
     			add_location(div1, file, 9, 4, 241);
     			attr_dev(span0, "id", "word");
     			attr_dev(span0, "class", "font-bold");
-    			add_location(span0, file, 21, 6, 733);
+    			add_location(span0, file, 21, 6, 762);
     			attr_dev(span1, "id", "definition");
-    			add_location(span1, file, 22, 6, 793);
+    			add_location(span1, file, 22, 6, 822);
     			attr_dev(div2, "id", "result");
     			attr_dev(div2, "class", "py-10");
-    			add_location(div2, file, 20, 4, 694);
+    			add_location(div2, file, 20, 4, 723);
     			attr_dev(div3, "id", "container");
     			attr_dev(div3, "class", "px-8 sm:px-20 md:px-40 lg:px-80");
     			add_location(div3, file, 4, 2, 58);
-    			attr_dev(main, "class", "text-neutral-200");
+    			attr_dev(main, "class", "text-neutral-900");
     			add_location(main, file, 3, 0, 23);
     		},
     		l: function claim(nodes) {
