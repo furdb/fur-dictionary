@@ -10,10 +10,9 @@
 
 <body>
     <h1>Fur Dictionary</h1>
-    <form>
-        <input id="word" />
-        <button type="submit">Go</button>
-    </form>
+
+    <input id="word" />
+    <button type="button" onclick="window.location = '/?word=' + document.getElementById('word').value">Go</button>
 
     {% if word and definition %}
     <p>
