@@ -16,3 +16,7 @@ body {
 .btn {
     font-size: larger;
 }
+
+.word {
+    font-style: italic;
+}
