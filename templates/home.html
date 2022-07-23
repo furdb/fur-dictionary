@@ -10,16 +10,19 @@
 </head>
 
 <body>
-    <h1>Fur Dictionary</h1>
+    <main>
+        <h1 class="title">Fur Dictionary</h1>
 
-    <input id="word" />
-    <button type="button" onclick="window.location = '/?word=' + document.getElementById('word').value">Go</button>
+        <input id="word" class="input" />
+        <button type="button" class="btn" onclick="window.location = '/?word=' + document.getElementById('word').value">Go</button>
 
-    {% if word and definition %}
-    <p>
-        {{word}}: {{definition}}
-    </p>
-    {% endif %}
+        {% if word and definition %}
+        <p>
+            <span class="word">{{word}}:</span>
+            <span class="definition">{{definition}}</span>
+        </p>
+        {% endif %}
+    </main>
 </body>
 
 </html>
