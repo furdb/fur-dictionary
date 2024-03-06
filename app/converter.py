@@ -74,11 +74,9 @@ def decode(binary: int, size: int) -> str:
     i = 0
     while i < len(binary):
         if binary[i] == "1111":
-            # print("AT_1111", i, binary[i])
             i += 1
             data += mapping.get("1111").get(binary[i], "")
         else:
-            # print("NO_1111", i, binary[i])
             data += mapping.get(binary[i], "")
         i += 1
 

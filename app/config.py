@@ -1,9 +1,3 @@
-FURDB_HOST = "http://127.0.0.1"
-FURDB_PORT = "8080"
-
-FURDB_DATABASE_ID = "dictionary"
-FURDB_TABLE_ID = "dictionary"
-
 WORD_SIZE = 44
 DEFINITION_SIZE = 76
 

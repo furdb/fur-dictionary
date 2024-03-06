@@ -1,8 +1,15 @@
+import os
 import requests
 import json
 
 from converter import *
 from config import *
+
+FURDB_HOST = os.environ.get("FURDB_HOST")
+FURDB_PORT = os.environ.get("FURDB_PORT")
+FURDB_DATABASE_ID = os.environ.get("FURDB_DATABASE_ID")
+FURDB_TABLE_ID = os.environ.get("FURDB_TABLE_ID")
+
 
 def generate():
     delete_database()
