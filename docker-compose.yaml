@@ -1,0 +1,23 @@
+version: '3'
+services:
+  api:
+    environment:
+      FURDB_HOST: http://db
+      FURDB_PORT: 8080
+      FURDB_DATABASE_ID: dictionary
+      FURDB_TABLE_ID: dictionary
+      DEBUG: 1
+    build: .
+    working_dir: /code/app
+    command: uvicorn main:app --host 0.0.0.0 --port 80
+    ports:
+      - "5000:80"
+    restart: on-failure
+    depends_on:
+      - db
+  db:
+    image: madhavanraja/furdb:latest
+    environment:
+      FUR_DIRECTORY: /furdb
+      FURDB_SERVER: 8080
+    restart: on-failure
