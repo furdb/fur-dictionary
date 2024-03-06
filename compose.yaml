@@ -2,7 +2,7 @@ version: '3'
 services:
   api:
     environment:
-      FURDB_HOST: http://host.docker.internal
+      FURDB_HOST: http://db
       FURDB_PORT: 8080
       FURDB_DATABASE_ID: dictionary
       FURDB_TABLE_ID: dictionary
@@ -14,7 +14,11 @@ services:
       - ./app:/code/app
     ports:
       - "5000:80"
-      - "8080:8080"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    restart: on-failure
+    depends_on:
+      - db
+  db:
+    image: madhavanraja/furdb:latest
+    environment:
+      FUR_DIRECTORY: /furdb
     restart: on-failure

@@ -11,7 +11,7 @@ FURDB_DATABASE_ID = os.environ.get("FURDB_DATABASE_ID")
 FURDB_TABLE_ID = os.environ.get("FURDB_TABLE_ID")
 
 
-def generate():
+def prepare():
     delete_database()
     create_database()
     create_table()
@@ -44,11 +44,11 @@ def create_table():
         "table_columns": [
             {
                 "name": "Word",
-                "size": 44
+                "size": WORD_SIZE
             },
             {
                 "name": "Definition",
-                "size": 76
+                "size": DEFINITION_SIZE
             }
         ]
     }
@@ -65,8 +65,7 @@ def insert_words():
         ]
     }
 
-    res = requests.post(url, data=json.dumps(data), headers={'content-type':'application/json'})
-    res = json.loads(res.content.decode('utf8'))
+    requests.post(url, data=json.dumps(data), headers={'content-type':'application/json'})
 
 
 def get_words():

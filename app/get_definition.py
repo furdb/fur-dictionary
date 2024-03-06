@@ -15,6 +15,9 @@ def get_definition(word: str) -> str:
     url = f"{FURDB_HOST}:{FURDB_PORT}/{FURDB_DATABASE_ID}/{FURDB_TABLE_ID}/data"
 
     res = requests.get(url, data=json.dumps({}), headers={'content-type':'application/json'})
+
+    print(res)
+
     res = json.loads(res.content.decode('utf8'))
 
     for result in res.get("results", []):
