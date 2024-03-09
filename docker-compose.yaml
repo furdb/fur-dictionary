@@ -9,7 +9,9 @@ services:
       DEBUG: 1
     build: .
     working_dir: /code/app
-    command: uvicorn main:app --host 0.0.0.0 --port 80
+    command: uvicorn main:app --host 0.0.0.0 --port 80 --reload
+    volumes:
+      - ./app:/code/app
     ports:
       - "5000:80"
     restart: on-failure
@@ -19,5 +21,5 @@ services:
     image: madhavanraja/furdb:latest
     environment:
       FUR_DIRECTORY: /furdb
-      FURDB_SERVER: 8080
+      FURDB_PORT: 8080
     restart: on-failure
