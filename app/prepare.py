@@ -22,18 +22,23 @@ def prepare():
 
 
 def delete_database():
-    # TODO
-    pass
+    url = f"{FURDB_HOST}:{FURDB_PORT}/{FURDB_DATABASE_ID}"
+
+    data = {}
+
+    requests.delete(
+        url, data=json.dumps(data), headers={"content-type": "application/json"}
+    )
 
 
 def create_database():
     url = f"{FURDB_HOST}:{FURDB_PORT}/{FURDB_DATABASE_ID}"
 
-    data = {
-        "database_name": "Dictionary"
-    }
+    data = {"database_name": "Dictionary"}
 
-    requests.post(url, data=json.dumps(data), headers={'content-type':'application/json'})
+    requests.post(
+        url, data=json.dumps(data), headers={"content-type": "application/json"}
+    )
 
 
 def create_table():
@@ -42,30 +47,24 @@ def create_table():
     data = {
         "table_name": "Dictionary",
         "table_columns": [
-            {
-                "name": "Word",
-                "size": WORD_SIZE
-            },
-            {
-                "name": "Definition",
-                "size": DEFINITION_SIZE
-            }
-        ]
+            {"name": "Word", "size": WORD_SIZE},
+            {"name": "Definition", "size": DEFINITION_SIZE},
+        ],
     }
 
-    requests.post(url, data=json.dumps(data), headers={'content-type':'application/json'})
+    requests.post(
+        url, data=json.dumps(data), headers={"content-type": "application/json"}
+    )
 
 
 def insert_words():
     url = f"{FURDB_HOST}:{FURDB_PORT}/{FURDB_DATABASE_ID}/{FURDB_TABLE_ID}/data"
 
-    data = {
-        "data": [
-            [encode(word), encode(definition)] for word, definition in WORDS
-        ]
-    }
+    data = {"data": [[encode(word), encode(definition)] for word, definition in WORDS]}
 
-    requests.post(url, data=json.dumps(data), headers={'content-type':'application/json'})
+    requests.post(
+        url, data=json.dumps(data), headers={"content-type": "application/json"}
+    )
 
 
 def get_words():
@@ -73,11 +72,16 @@ def get_words():
 
     data = {}
 
-    res = requests.get(url, data=json.dumps(data), headers={'content-type':'application/json'})
-    res = json.loads(res.content.decode('utf8'))
+    res = requests.get(
+        url, data=json.dumps(data), headers={"content-type": "application/json"}
+    )
+    res = json.loads(res.content.decode("utf8"))
 
     res = res.get("results", [])
 
-    decoded = [[decode(r.get("data")[0], WORD_SIZE), decode(r.get("data")[1], DEFINITION_SIZE)] for r in res]
+    decoded = [
+        [decode(r.get("data")[0], WORD_SIZE), decode(r.get("data")[1], DEFINITION_SIZE)]
+        for r in res
+    ]
 
     return decoded

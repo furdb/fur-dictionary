@@ -13,18 +13,18 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 
-@app.get('/generate', response_class=JSONResponse)
-async def generate():
-    res = jsonable_encoder(prepare())
-    return JSONResponse(content=res)
-
-
-@app.get('/', response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse)
 async def home(request: Request, word: str = None):
+    prepare()
+
     definition = None
     if word:
         definition = get_definition(word)
-    return templates.TemplateResponse("home.html", {"request": request, "word": word, "definition": definition}, context={"request": request})
+    return templates.TemplateResponse(
+        "home.html",
+        {"request": request, "word": word, "definition": definition},
+        context={"request": request},
+    )
 
 
 if __name__ == "__main__":
