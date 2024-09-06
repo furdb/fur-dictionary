@@ -2,8 +2,8 @@ import os
 import requests
 import json
 
-from converter import *
-from config import *
+from converter import encode, decode
+from config import WORDS, WORD_SIZE, DEFINITION_SIZE
 
 FURDB_HOST = os.environ.get("FURDB_HOST")
 FURDB_PORT = os.environ.get("FURDB_PORT")
@@ -16,39 +16,25 @@ def prepare():
     create_database()
     create_table()
     insert_words()
-    words = get_words()
-
-    return words
 
 
 def delete_database():
     url = f"{FURDB_HOST}:{FURDB_PORT}/{FURDB_DATABASE_ID}"
-
-    data = {}
-
-    requests.delete(
-        url, data=json.dumps(data), headers={"content-type": "application/json"}
-    )
+    requests.delete(url)
 
 
 def create_database():
     url = f"{FURDB_HOST}:{FURDB_PORT}/{FURDB_DATABASE_ID}"
-
-    data = {"database_name": "Dictionary"}
-
-    requests.post(
-        url, data=json.dumps(data), headers={"content-type": "application/json"}
-    )
+    requests.post(url)
 
 
 def create_table():
     url = f"{FURDB_HOST}:{FURDB_PORT}/{FURDB_DATABASE_ID}/{FURDB_TABLE_ID}"
 
     data = {
-        "table_name": "Dictionary",
-        "table_columns": [
-            {"name": "Word", "size": WORD_SIZE},
-            {"name": "Definition", "size": DEFINITION_SIZE},
+        "tableColumns": [
+            {"size": WORD_SIZE},
+            {"size": DEFINITION_SIZE},
         ],
     }
 

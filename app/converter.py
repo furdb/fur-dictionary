@@ -1,3 +1,5 @@
+from config import DEFINITION_SIZE
+
 def encode(data: str) -> int:
     mapping = {
         "": "0000",
@@ -33,9 +35,9 @@ def encode(data: str) -> int:
 
     return int(binary, 2)
 
-def decode(binary: int, size: int) -> str:
+def decode(binary: int) -> str:
     binary = bin(binary)[2:]
-    binary = binary.zfill(size)
+    binary = binary.zfill(DEFINITION_SIZE)
 
     mapping = {
         "0000": "",
